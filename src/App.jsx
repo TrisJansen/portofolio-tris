@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   Menu, X, ArrowRight, CheckCircle2, ClipboardCheck, PieChart, Search,
   Bot, Presentation, Settings, Code2, Database, Send, FlaskConical,
-  MapPin, Mail, Phone, Briefcase, Calendar, Award, Quote, Sparkles
+  MapPin, Mail, Phone, Briefcase, Calendar, Award, Quote, Sparkles,Monitor,BookOpen,Users
 } from "lucide-react";
 
 import fotoHero from "./assets/DSC01121.JPG";
@@ -26,22 +26,50 @@ function Github({ size = 16, className = "" }) {
   );
 }
 
-function Twitter({ size = 16, className = "" }) {
+function Instagram({ size = 16, className = "" }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size} className={className}>
-      <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616-.054 1.49.999 3.139 2.594 3.652-.394.105-.794.116-1.184.066.334 1.143 1.36 1.971 2.601 2.069-1.27.996-2.872 1.491-4.609 1.328 1.518.973 3.318 1.543 5.255 1.543 6.315 0 9.766-5.232 9.766-9.768 0-.149-.003-.297-.01-.443.671-.484 1.255-1.09 1.717-1.78z"/>
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
     </svg>
   );
 }
 
-function Youtube({ size = 16, className = "" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size} className={className}>
-      <path d="M23.498 6.186a2.97 2.97 0 0 0-2.088-2.088C19.692 3.5 12 3.5 12 3.5s-7.692 0-9.41.598A2.97 2.97 0 0 0 .502 6.186 31.03 31.03 0 0 0 0 12a31.03 31.03 0 0 0 .502 5.814 2.97 2.97 0 0 0 2.088 2.088C4.308 20.5 12 20.5 12 20.5s7.692 0 9.41-.598a2.97 2.97 0 0 0 2.088-2.088A31.03 31.03 0 0 0 24 12a31.03 31.03 0 0 0-.502-5.814zM9.75 15.5v-7l6 3.5-6 3.5z"/>
-    </svg>
-  );
-}
+const SOCIAL_LINKS = [
+  {
+    id: "linkedin",
+    icon: Linkedin,
+    url: "https://www.linkedin.com/in/trisjansen/", 
+    label: "LinkedIn",
+  },
+  {
+    id: "github",
+    icon: Github,
+    url: "https://github.com/TrisJansen", 
+    label: "GitHub",
+  },
+  {
+    id: "instagram",
+    icon: Instagram,
+    url: "https://www.instagram.com/jansen_ltoruan/", 
+    label: "Instagram",
+  },
+];
 
+
+<div className="flex items-center gap-4">
+  {SOCIAL_LINKS.map(({ id, icon: Icon, url, label }) => (
+    <a
+      key={id}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-slate-400 hover:text-cyan-600 transition-colors duration-200"
+      aria-label={label}
+    >
+      <Icon size={24} /> {}
+    </a>
+  ))}
+</div>
 const NAV_ITEMS = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
@@ -58,12 +86,16 @@ const STATS = [
 ];
 
 const HIGHLIGHTS = [
+  { icon: Users, title: "Leadership", desc: "Team mentoring, delegation & strategic alignment" },
   { icon: ClipboardCheck, title: "Quality Software", desc: "Standar & best practices QA" },
   { icon: PieChart, title: "Business Analyst", desc: "Requirement & risk analysis" },
   { icon: Search, title: "Manual Testing", desc: "Test case & exploratory testing" },
   { icon: Bot, title: "Automation Testing", desc: "Framework & script automation" },
-  { icon: Presentation, title: "Presenting", desc: "Reporting & stakeholder presentation" },
   { icon: Settings, title: "System Implementor", desc: "End-to-end solution delivery" },
+  { icon: Monitor, title: "Demo System", desc: "UAT testing & stakeholder walkthrough" },
+  { icon: BookOpen, title: "System Training", desc: "End-user onboarding & knowledge transfer" },
+  { icon: Presentation, title: "Presenting", desc: "Reporting & stakeholder presentation" },
+
 ];
 
 const GALLERY = [
@@ -73,12 +105,15 @@ const GALLERY = [
 ];
 
 const SKILLS = [
+  { icon: Users, title: "Leadership", desc: "Team mentoring, delegation & strategic alignment" },
   { icon: ClipboardCheck, title: "Quality Software", desc: "Standar & best practices QA" },
-  { icon: PieChart, title: "Business Analysis", desc: "Requirement & risk analysis" },
-  { icon: Search, title: "Manual Tester", desc: "Test case & exploratory testing" },
+  { icon: PieChart, title: "Business Analyst", desc: "Requirement & risk analysis" },
+  { icon: Search, title: "Manual Testing", desc: "Test case & exploratory testing" },
   { icon: Bot, title: "Automation Testing", desc: "Framework & script automation" },
+  { icon: Settings, title: "System Implementor", desc: "End-to-end solution delivery" },
+  { icon: Monitor, title: "Demo System", desc: "UAT testing & stakeholder walkthrough" },
+  { icon: BookOpen, title: "System Training", desc: "End-user onboarding & knowledge transfer" },
   { icon: Presentation, title: "Presenting", desc: "Reporting & stakeholder presentation" },
-  { icon: Settings, title: "Implementor", desc: "End-to-end solution delivery" },
 ];
 
 const TOOLS = [
@@ -154,10 +189,20 @@ function Footer({ setPage }) {
     <footer className="bg-slate-50 border-t border-slate-100 pt-14 pb-8 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         <div className="flex gap-3 mb-6">
-          <a href="#" aria-label="LinkedIn" className="w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-indigo-600 hover:text-white hover:border-transparent transition-colors"><Linkedin size={18} /></a>
-          <a href="#" aria-label="GitHub" className="w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-indigo-600 hover:text-white hover:border-transparent transition-colors"><Github size={18} /></a>
-          <a href="#" aria-label="Twitter" className="w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-indigo-600 hover:text-white hover:border-transparent transition-colors"><Twitter size={18} /></a>
-          <a href="#" aria-label="YouTube" className="w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-indigo-600 hover:text-white hover:border-transparent transition-colors"><Youtube size={18} /></a>
+         <div className="flex items-center gap-3">
+  {SOCIAL_LINKS.map(({ id, icon: Icon, url, label }) => (
+    <a
+      key={id}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      className="w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-indigo-600 hover:text-white hover:border-transparent transition-colors"
+    >
+      <Icon size={18} />
+    </a>
+  ))}
+</div>
         </div>
         <nav className="flex flex-wrap justify-center gap-6 mb-6">
           {NAV_ITEMS.map(item => (
@@ -231,20 +276,29 @@ function HomePage({ setPage }) {
 
 function AboutPage() {
   return (
-    <div className="pt-32 pb-24 px-6 lg:px-12">
-      <div className="max-w-3xl mx-auto text-center mb-16">
-        <p className="text-cyan-600 font-semibold text-sm uppercase tracking-wide mb-2">Tentang Saya</p>
-        <h1 className="text-3xl md:text-5xl font-bold text-slate-800 mb-6">Mengantarkan <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">Kualitas</span> di Setiap Langkah</h1>
-      </div>
+   <div className="pt-32 pb-24 px-6 lg:px-12">
+  <div className="max-w-3xl mx-auto text-center mb-16">
+    <p className="text-cyan-600 font-semibold text-sm uppercase tracking-wide mb-2">Tentang Saya</p>
+    <h1 className="text-3xl md:text-5xl font-bold text-slate-800 mb-6">Mengantarkan <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">Kualitas</span> di Setiap Langkah</h1>
+  </div>
 
-      <div className="max-w-4xl mx-auto mb-16 space-y-5">
-        <p className="text-slate-500 leading-relaxed text-lg">
-          Saya <strong className="text-slate-700">Tris Jansen Lumban Toruan</strong>, seorang <strong className="text-slate-700">Head Quality Assurance</strong> yang berdedikasi untuk memastikan setiap produk software yang dirilis memenuhi standar kualitas tertinggi. Dengan pengalaman memimpin lebih dari 10 proyek, saya membawa pendekatan holistik — dari analisis bisnis hingga implementasi pengujian otomatis.
-        </p>
-        <p className="text-slate-500 leading-relaxed text-lg">
-          Saya percaya bahwa kualitas bukan hanya tentang menemukan bug, tetapi tentang membangun kepercayaan. Setiap proyek adalah kesempatan untuk menciptakan pengalaman digital yang handal, aman, dan memuaskan bagi pengguna.
-        </p>
-      </div>
+  <div className="max-w-4xl mx-auto mb-16 space-y-5">
+    <p className="text-slate-500 leading-relaxed text-lg">
+      Saya <strong className="text-slate-700">Tris Jansen Lumban Toruan</strong>, seorang <strong className="text-slate-700">Head Quality Assurance</strong> yang berdedikasi tinggi. Dengan pengalaman menangani lebih dari <strong className="text-slate-700">10+ proyek</strong> serta memimpin <strong className="text-slate-700">5 proyek</strong> secara langsung di posisi Head QA, saya tidak hanya berfokus pada menemukan bug, tetapi membangun fondasi kualitas yang kokoh sejak awal perencanaan.
+    </p>
+    <p className="text-slate-500 leading-relaxed text-lg">
+      Pendekatan saya bersifat holistik dan strategis. Saya aktif terlibat dalam <strong className="text-slate-700">analisis bisnis (Business Analysis)</strong> untuk mendalami kebutuhan pengguna serta tujuan proyek, sehingga strategi pengujian yang dirancang benar-benar relevan dengan ekspektasi pasar. Dari hasil analisis tersebut, saya memimpin proses <strong className="text-slate-700">implementasi sistem (System Implementation)</strong> dengan memastikan setiap aspek teknis teruji, terdokumentasi, dan terintegrasi secara sempurna sebelum perilisan.
+    </p>
+    <p className="text-slate-500 leading-relaxed text-lg">
+      Di luar ranah teknis, saya memiliki keahlian dalam melakukan <strong className="text-slate-700">demonstrasi sistem (System Demo)</strong> dan <strong className="text-slate-700">presentasi sistem (System Presenting)</strong> di hadapan berbagai pemangku kepentingan, mulai dari tim teknis hingga jajaran eksekutif dan klien. Saya mampu menerjemahkan hasil pengujian dan performa produk menjadi bahasa bisnis yang jelas, meyakinkan, serta mudah dipahami—menjembatani kesenjangan antara tim pengembang dan kebutuhan bisnis.
+    </p>
+    <p className="text-slate-500 leading-relaxed text-lg">
+      Sebagai seorang pemimpin, saya sangat mengedepankan <strong className="text-slate-700">pendelegasian (Delegation)</strong> dan <strong className="text-slate-700">kepemimpinan (Leadership)</strong> yang memberdayakan. Saya percaya bahwa memberikan kepercayaan dan ruang tanggung jawab penuh kepada setiap anggota tim adalah kunci untuk menciptakan lingkungan kerja yang produktif, kolaboratif, dan inovatif. Saya memastikan setiap personel memiliki arahan yang jelas dan sumber daya yang cukup untuk berkontribusi secara maksimal.
+    </p>
+    <p className="text-slate-500 leading-relaxed text-lg">
+      Intinya, kualitas bagi saya bukan sekadar metrik, melainkan tentang <strong className="text-slate-700">membangun kepercayaan</strong>. Setiap proyek adalah kesempatan untuk menghadirkan pengalaman digital yang handal, aman, dan benar-benar memuaskan bagi pengguna akhir.
+    </p>
+  </div>
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {HIGHLIGHTS.map((h, i) => (
