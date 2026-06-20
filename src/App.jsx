@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   Menu, X, ArrowRight, CheckCircle2, ClipboardCheck, PieChart, Search,
   Bot, Presentation, Settings, Code2, Database, Send, FlaskConical,
-  MapPin, Mail, Phone, Briefcase, Calendar, Award, Quote, Sparkles,Monitor,BookOpen,Users
+  MapPin, Mail, Phone, Briefcase, Calendar, Award, Quote, Sparkles,Monitor,BookOpen,Users,ListTodo,Kanban,GitBranch,Sheet,FileText,Bug,Brain,Cpu
 } from "lucide-react";
 
 import fotoHero from "./assets/DSC01121.JPG";
@@ -81,7 +81,7 @@ const NAV_ITEMS = [
 
 const STATS = [
   { icon: Briefcase, value: "10+", label: "Proyek Dihadapi" },
-  { icon: Calendar, value: "4+", label: "Tahun Pengalaman" },
+  { icon: Calendar, value: "3+", label: "Tahun Pengalaman" },
   { icon: Award, value: "100%", label: "Komitmen Kualitas" },
 ];
 
@@ -121,14 +121,54 @@ const TOOLS = [
   { icon: Database, name: "SQL" },
   { icon: Send, name: "Postman" },
   { icon: FlaskConical, name: "Katalon" },
+  { icon: ListTodo, name: "ClickUp" },
+  { icon: Kanban, name: "Jira" },
+  { icon: GitBranch, name: "Git" },
+  { icon: Sheet, name: "Google Sheets" },
+  { icon: FileText, name: "Google Docs" },
+  { icon: Bug, name: "Chrome DevTools" },
+  { icon: Sparkles, name: "ChatGPT" },
+  { icon: Brain, name: "Claude AI" },
+  { icon: Cpu, name: "Copilot" }
 ];
 
 const EXPERIENCE = [
-  { number: "01", title: "Platform E-Commerce", role: "Lead QA · 12 bulan", desc: "Mengkoordinasikan tim QA untuk menguji sistem pembayaran, integrasi logistik, dan flow transaksi. Menerapkan automation testing untuk regression suite." },
-  { number: "02", title: "Sistem Manajemen Rumah Sakit", role: "QA Lead · 10 bulan", desc: "Memastikan keandalan modul rekam medis, antrian pasien, dan integrasi dengan sistem laboratorium. Fokus pada keamanan data dan performance." },
-  { number: "03", title: "Aplikasi Mobile Fintech", role: "Senior QA · 8 bulan", desc: "Pengujian menyeluruh pada fitur transaksi, autentikasi biometrik, dan notifikasi real-time. Implementasi test automation untuk mobile." },
-  { number: "04", title: "Dashboard Analitik Data", role: "QA Engineer · 6 bulan", desc: "Validasi akurasi data visualisasi, performa query, dan user experience. Membantu tim dalam penyusunan test strategy." },
-  { number: "+6", title: "Berbagai Proyek Lainnya", role: "Head QA · 4+ tahun", desc: "Mulai dari sistem pemerintahan, e-learning, hingga manajemen inventaris. Selalu dengan pendekatan quality-first." },
+  {
+    number: "01",
+    title: "Forwarding Management System (Oaktree.id)",
+    role: "Lead QA & Quality Assurance · 3 Tahun (Saat Ini)",
+    desc: "Memimpin tim QA dan bertanggung jawab penuh atas kualitas sistem. Melakukan manual testing (smoke, regression), API testing terintegrasi, serta semi-automation testing. Berkoordinasi erat dengan Developer, Project Manager, dan pemangku kepentingan untuk memastikan flow pembuatan dokumen shipment, transaksi, integrasi ERP, dan reporting berjalan akurat dan handal. Aktif dalam demo sistem, analisis kebutuhan, implementasi fitur, serta pelatihan user untuk adopsi sistem yang optimal."
+  },
+  {
+    number: "02",
+    title: "Consolidating Accounting System (Bambootree.id)",
+    role: "Quality Assurance · 3 Tahun (Saat Ini)",
+    desc: "Menguji dan memvalidasi integrasi antar sistem, baik melalui API maupun import data Excel. Berkoordinasi dengan Developer dan Project Manager untuk memastikan alur bisnis sesuai requirement. Menerapkan manual testing, API testing terintegrasi, dan regression testing untuk menjaga stabilitas sistem akuntansi konsolidasi."
+  },
+  {
+    number: "03",
+    title: "Distribution Management System (Carvil)",
+    role: "Junior Project Manager & Quality Assurance · 4 Bulan",
+    desc: "Menangani manajemen timeline dan koordinasi tim developer serta Project Manager Officer. Bertanggung jawab atas validasi data, visualisasi dashboard, dan integrasi ERP. Melakukan manual testing dan API testing untuk memastikan akurasi distribusi dan performa sistem juga aktif dalam melakukan demo system, implementasi system dan pelatihan user."
+  },
+  {
+    number: "04",
+    title: "Working Progress Management System",
+    role: "Lead Quality Assurance · 3 Bulan",
+    desc: "Memimpin tim QA dalam menguji fungsionalitas, visual, dan user experience sistem manajemen progres kerja, aktif melakukan demo System dan training user. Berkolaborasi dengan Developer dan Project Manager untuk validasi data serta memberikan rekomendasi perbaikan selama tahap development, memastikan sistem sesuai kebutuhan pengguna."
+  },
+  {
+    number: "05",
+    title: "Marketplace Platform (Holliwings.Apparel.com)",
+    role: "Quality Assurance (Freelance) · 3 Minggu",
+    desc: "Bergabung sebagai QA freelance, melakukan pengujian fungsional end-to-end dan memberikan rekomendasi perbaikan kepada tim development dan project manager selama proses development berlangsung."
+  },
+  {
+    number: "+6",
+    title: "Berbagai Proyek Lainnya",
+    role: "Lead QA · 1+ Tahun",
+    desc: "Menangani proyek-proyek beragam seperti Procurement Management System, Palm Oil Mill System, integrasi AI-WhatsApp dengan n8n, dan auto-generated quotation yang menghubungkan ClickUp, Odoo, dan ERP. Selalu menerapkan pendekatan quality-first dalam setiap tahap, mulai dari analisis hingga deployment."
+  }
 ];
 
 function Navbar({ page, setPage, mobileOpen, setMobileOpen }) {
@@ -232,7 +272,7 @@ function HomePage({ setPage }) {
               <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">Lumban Toruan</span>
             </h1>
             <p className="text-slate-500 leading-relaxed max-w-xl mx-auto md:mx-0 mb-8">
-              <span className="font-semibold text-slate-700">Head Quality Assurance</span> dengan pengalaman menangani 10+ proyek. Berkomitmen menghadirkan software berkualitas melalui pendekatan strategis dan pengujian yang mendalam.
+              <span className="font-semibold text-slate-700">Lead Quality Assurance</span> dengan pengalaman menangani 10+ proyek. Berkomitmen menghadirkan software berkualitas melalui pendekatan strategis dan pengujian yang mendalam.
             </p>
             <div className="flex justify-center md:justify-start gap-10 mb-8">
               {STATS.map((s, i) => (
@@ -284,7 +324,7 @@ function AboutPage() {
 
   <div className="max-w-4xl mx-auto mb-16 space-y-5">
     <p className="text-slate-500 leading-relaxed text-lg">
-      Saya <strong className="text-slate-700">Tris Jansen Lumban Toruan</strong>, seorang <strong className="text-slate-700">Head Quality Assurance</strong> yang berdedikasi tinggi. Dengan pengalaman menangani lebih dari <strong className="text-slate-700">10+ proyek</strong> serta memimpin <strong className="text-slate-700">5 proyek</strong> secara langsung di posisi Head QA, saya tidak hanya berfokus pada menemukan bug, tetapi membangun fondasi kualitas yang kokoh sejak awal perencanaan.
+      Saya <strong className="text-slate-700">Tris Jansen Lumban Toruan</strong>, seorang <strong className="text-slate-700">Lead Quality Assurance</strong> yang berdedikasi tinggi. Dengan pengalaman menangani lebih dari <strong className="text-slate-700">10+ proyek</strong> serta memimpin <strong className="text-slate-700">5 proyek</strong> secara langsung di posisi Lead QA, saya tidak hanya berfokus pada menemukan bug, tetapi membangun fondasi kualitas yang kokoh sejak awal perencanaan.
     </p>
     <p className="text-slate-500 leading-relaxed text-lg">
       Pendekatan saya bersifat holistik dan strategis. Saya aktif terlibat dalam <strong className="text-slate-700">analisis bisnis (Business Analysis)</strong> untuk mendalami kebutuhan pengguna serta tujuan proyek, sehingga strategi pengujian yang dirancang benar-benar relevan dengan ekspektasi pasar. Dari hasil analisis tersebut, saya memimpin proses <strong className="text-slate-700">implementasi sistem (System Implementation)</strong> dengan memastikan setiap aspek teknis teruji, terdokumentasi, dan terintegrasi secara sempurna sebelum perilisan.
