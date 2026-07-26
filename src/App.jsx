@@ -12,9 +12,9 @@ import fotogalery1 from "./assets/speaking.JPG";
 import fotogalery2 from "./assets/Partner.jpg";
 import fotogalery3 from "./assets/Google.jpg";
 import fotogalery4 from "./assets/Carvil.jpg";
-import fotogalery5 from "./assets/Ap 1.jpeg";
-import fotogalery6 from "./assets/ap Bertiga.jpeg";
-import fotogalery7 from "./assets/ap Tim.jpeg";
+import fotogalery5 from "./assets/ap1.jpeg";
+import fotogalery6 from "./assets/apbertiga.jpeg";
+import fotogalery7 from "./assets/aptim.jpeg";
 
 // ─── Social Icon Components ───────────────────────────────────────────────────
 function Linkedin({ size = 16, className = "" }) {
